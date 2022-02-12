@@ -9,6 +9,12 @@ form.login_form {
 }
 h1 { font-size: 250%;
 }
+
+#bluep {font-size: 200%;
+color:gray;
+text-align; left;
+}
+
 #redh {font-size: 300;
 color: red;}
 
