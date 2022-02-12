@@ -284,8 +284,9 @@ def bootstrap():
                   </body>
                 </html>'''
 
+
 @app.route('/results/<nickname>/<int:level>/<float:rating>')
-def show_results(nickname,level,rating):
+def show_results(nickname, level, rating):
     return f'''<!doctype html>
                     <html lang="en">
                       <head>
@@ -312,6 +313,7 @@ def show_results(nickname,level,rating):
                         </div>
                       </body>
                     </html>'''
+
 
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
