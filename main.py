@@ -36,6 +36,8 @@ def show_png():
                   <body>
                   <h1> Жди нас, Марс! </h1>
                     <img src="{url_for('static', filename='img/mars.png')}" 
+                    <p></p>
+                    <p> марс пригоден для жизни </p>
                   </body>
                 </html>"""
 
