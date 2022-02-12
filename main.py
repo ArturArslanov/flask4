@@ -45,6 +45,7 @@ def show_png():
 
 
 @app.route('/form', methods=['POST', 'GET'])
+@app.route('/astronaut_selection',methods=['POST', 'GET'])
 def form_sample():
     if request.method == 'GET':
         return f'''<!doctype html>
