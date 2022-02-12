@@ -1,4 +1,6 @@
-from flask import Flask, url_for
+from pprint import pprint
+
+from flask import Flask, url_for, request
 
 app = Flask(__name__)
 
@@ -42,6 +44,170 @@ def show_png():
                 </html>"""
 
 
+@app.route('/form', methods=['POST', 'GET'])
+def form_sample():
+    if request.method == 'GET':
+        return f'''<!doctype html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="utf-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                            <link rel="stylesheet"
+                            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                            crossorigin="anonymous">
+                            <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                            <title>Пример формы</title>
+                          </head>
+                          <body>
+                            <h1> <center> Анкета  претендента</h1>
+                            <p id="block1">на колонизатора </p>
+                            <div>
+                                <form class="login_form" method="post">
+                                <input class="form-control form-control-lg" type="text" aria-label=".form-control-lg example"
+                                    placeholder="введите ваше фамилию">
+                                <p> фамилия </p>
+                                    <input class="form-control form-control-lg" type="text" aria-label=".form-control-lg example"
+                                    placeholder="введите ваше имя">
+                                    <p> имя</p>
+                                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                     placeholder="Введите адрес почты" name="email">
+                                    <p> почта </p>
+                                    <select class="form-select" aria-label="Default select example">
+                                      <option value="1">начальное</option>
+                                      <option value="2">среднее</option>
+                                      <option value="3">высшее</option>
+                                    </select>
+                                    <p> образование </p>
+                                                          <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            инженер-исследователь
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            пилот
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            строитель
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            экзобиолог
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            врач
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            инженер по терраформированию
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            климатолог
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            специалист по радиационной защите
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            астрогеолог
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            гляциолог
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            инженер жизнеобеспечения
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            метеоролог
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            оператор марсохода
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            киберинженер
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            штурман
+                                          </label>
+                                        </div>
+                      <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                          <label class="form-check-label" for="flexCheckDefault">
+                                            пилот дронов
+                                          </label>
+                                        </div>
+                                        <p> пол </p>
+                                        <div class="form-check">
+                                        
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                          <label class="form-check-label" for="flexRadioDefault1">
+                                            Мужской
+                                          </label>
+                                        </div>
+                                        <div class="form-check">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                                          <label class="form-check-label" for="flexRadioDefault2">
+                                            Женский
+                                          </label>
+                                        </div>
+                                        <div class="mb-3">
+                                          <label for="exampleFormControlTextarea1" class="form-label">какая у вас 
+                                          мотивация?</label>
+                                          <textarea class="form-control" id="exampleFormControlTextarea1" 
+                                          rows="4"></textarea>
+                                        </div>
+                                    <div class="form-check form-switch">
+                                      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                                      <label class="form-check-label" for="flexSwitchCheckDefault">готовы ли вы остаться на Марск?</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Записаться</button>
+                                </form>
+                            </div>
+                          </body>
+                        </html>'''
+    elif request.method == 'POST':
+        return "Форма отправлена"
+
+
 @app.route('/promotion_image')
 def bootstrap():
     return f'''<!doctype html>
@@ -63,13 +229,10 @@ def bootstrap():
                     <div class="alert alert-primary" role="alert">
                       колонизация марса будет
                     </div>
-                    <div class="alert alert-secondary" role="alert">
-                      Марс достижимая планета
-                    </div>
-                    <div class="alert alert-success" role="alert">
-                    земли марса будут покорены
                     </div>
                   </body>
                 </html>'''
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')
