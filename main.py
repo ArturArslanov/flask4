@@ -44,8 +44,13 @@ def show_png():
                 </html>"""
 
 
+@app.route('/choice/<string:planet>')
+def any_(planet: str):
+    return f'<strong>{planet.capitalize()}</strong>'
+
+
 @app.route('/form', methods=['POST', 'GET'])
-@app.route('/astronaut_selection',methods=['POST', 'GET'])
+@app.route('/astronaut_selection', methods=['POST', 'GET'])
 def form_sample():
     if request.method == 'GET':
         return f'''<!doctype html>
@@ -224,11 +229,23 @@ def bootstrap():
                     <title>Колонизация</title>
                   </head>
                   <body>
-                    <h1>Жди нас, Марс!</h1>
+                    <h1 id=redh>Жди нас, Марс!</h1>
                     <img src="{url_for('static', filename='img/mars.png')}" >
                     <p></p>
                     <div class="alert alert-primary" role="alert">
-                      колонизация марса будет
+                      колонизация марса будет  
+                    </div>
+                    <div class="alert alert-warning" role="alert">
+                      Марс наша вторая земля
+                    </div>
+                    <div class="alert alert-info" role="alert">
+                     сделаем планету пригодной для жизни
+                    </div>
+                    <div class="alert alert-light" role="alert">
+                      марс очень близок
+                    </div>
+                    <div class="alert alert-dark" role="alert">
+                      присоединяйся
                     </div>
                     </div>
                   </body>

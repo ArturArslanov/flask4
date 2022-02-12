@@ -9,6 +9,8 @@ form.login_form {
 }
 h1 { font-size: 300%;
 }
+#redh {font-size: 300;
+color: red;}
 
 #block1 {text-align: center;
 padding: 5px;
