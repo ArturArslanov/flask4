@@ -1,8 +1,11 @@
+import os
 from pprint import pprint
 
 from flask import Flask, url_for, request
 
 app = Flask(__name__)
+photography = 'img/ino.png'
+photo_2 = 'img/time.png'
 
 
 @app.route('/')
@@ -313,6 +316,83 @@ def show_results(nickname, level, rating):
                         </div>
                       </body>
                     </html>'''
+
+
+@app.route('/load_photo', methods=['POST', 'GET'])
+def show_res():
+    print(request.method)
+    if request.method == 'GET':
+        return f'''<!doctype html>
+                           <html lang="en">
+                             <head>
+                               <meta charset="utf-8">
+                               <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                               <link rel="stylesheet"
+                               href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                               integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                               crossorigin="anonymous">
+                               <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                               <title>Пример формы</title>
+                             </head>
+                             <body>
+                               <h1> <center> Загрузите фотографию</center></h1>
+                               <p id="block1">для участия в комиссии </p>
+                                <div class="alert alert-danger" role="alert">
+                                <form method="post" enctype="multipart/form-data">
+                                     приложите фотографию
+                                     <div class="mb-3">
+                                      <label for="formFile" class="form-label">[/?~?/]</label>
+                                      <input class="form-control" type="file" id="formFile" name='aleks'>
+                                    </div>
+                                    <img src="{url_for('static', filename=f'{photography}')}" >
+                                    <div>
+                                        <button type="submit" class="btn btn-primary">Записаться</button>
+                                    </div>
+                                    </form>
+                                </div>
+                             </body>
+                           </html>'''
+    elif request.method == 'POST':
+        g = True
+        if request.files.get('aleks'):
+            file = request.files['aleks']
+        else:
+            file = open(f'static/{photography}', 'rb')
+            g = False
+        with open(f'static/{photo_2}', 'wb') as f:
+            f.write(file.read())
+        if not g:
+            file.close()
+        return f'''<!doctype html>
+                                   <html lang="en">
+                                     <head>
+                                       <meta charset="utf-8">
+                                       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                                       <link rel="stylesheet"
+                                       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+                                       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+                                       crossorigin="anonymous">
+                                       <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                                       <title>Пример формы</title>
+                                     </head>
+                                     <body>
+                                       <h1> <center> Загрузите фотографию</center></h1>
+                                       <p id="block1">для участия в комиссии </p>
+                                        <div class="alert alert-danger" role="alert">
+                                        <form method="post" enctype="multipart/form-data">
+                                             приложите фотографию
+                                             <div class="mb-3">
+                                              <label for="formFile" class="form-label">[/?~?/]</label>
+                                              <input class="form-control" type="file" id="formFile" name='aleks'>
+                                            </div>
+                                            <img src="{url_for('static', filename=f'{photo_2}')}" >
+                                            <div>
+                                                <button type="submit" class="btn btn-primary">Записаться</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                     </body>
+                                   </html>'''
 
 
 if __name__ == '__main__':
