@@ -387,7 +387,7 @@ def show_res():
                                             </div>
                                             <img src="{url_for('static', filename=f'{photo_2}')}" >
                                             <div>
-                                                <button type="submit" class="btn btn-primary">Записаться</button>
+                                                <button type="submit" class="btn btn-primary">загрузить</button>
                                             </div>
                                             </form>
                                         </div>
