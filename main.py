@@ -389,10 +389,58 @@ def show_res():
                                             <div>
                                                 <button type="submit" class="btn btn-primary">загрузить</button>
                                             </div>
-                                            </form>
+                                            </form> 
                                         </div>
                                      </body>
                                    </html>'''
+
+
+# src="{url_for('static', filename=f'{"img/mars1.png"}')}"
+@app.route("/carousel")
+def mars_pictures():
+    return f'''<!doctype html>
+                <html lang="en">
+                  <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                    <link rel="stylesheet" 
+                    href="style.css" crossorigin="anonymous">
+
+                    <link rel="stylesheet" 
+                    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" 
+                    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" 
+                    crossorigin="anonymous">
+                    <link rel="stylesheet" type="text/css" href="{url_for('static', filename='css/style.css')}" />
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                    <title>Пример формы</title>
+                  </head>
+                  <body>
+                  
+                    <h3 id="block1">Пейзажи Марса</h3>
+                      <div id="carouselExampleControls" class="carousel slide carousel-fade" 
+                      data-ride="carousel">
+                      
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                            <img  src="{url_for('static', filename=f'{"img/mars1.png"}')}">
+                            </div>
+                            <div class="carousel-item">
+                            <img  src="{url_for('static', filename=f'{"img/mars2.png"}')}" 
+                            alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                            <img  src="{url_for('static', filename=f'{"img/mars3.png"}')}">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" data-slide="next">
+                            <span aria-hidden="false"> 
+                            поменять</span>
+                        </a>
+                        
+                        </div>
+                  </body>
+                </html>'''
 
 
 if __name__ == '__main__':

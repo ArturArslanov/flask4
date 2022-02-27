@@ -18,8 +18,9 @@ text-align; left;
 #redh {font-size: 300;
 color: red;}
 
-#block1 {text-align: center;
+#block1 {
+text-align: center;
 padding: 5px;
 font-size: 250%;
-margin: 2px;
 }
+#green {color:blue;}
